@@ -64,7 +64,6 @@ html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  zoom: 0.9;
 }
 
 body {
@@ -624,9 +623,9 @@ body.menu-open {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: transparent;
+  background-color: var(--bg-dark);
   overflow: hidden;
-  padding: 120px 0 90px;
+  padding: 130px 0 100px;
 }
 
 .hero-slider {
@@ -665,10 +664,10 @@ body.menu-open {
   z-index: 2;
   background: linear-gradient(
     90deg,
-    rgba(10, 10, 10, 0.70) 0%,
-    rgba(10, 10, 10, 0.45) 45%,
-    rgba(10, 10, 10, 0.12) 80%,
-    rgba(10, 10, 10, 0.20) 100%
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.85) 45%,
+    rgba(10, 10, 10, 0.35) 80%,
+    rgba(10, 10, 10, 0.45) 100%
   );
 }
 
@@ -741,10 +740,10 @@ body.menu-open {
 /* Slider Pagination Indicators */
 .hero-slider-nav {
   position: absolute;
-  bottom: 75px;
+  bottom: 65px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 6;
+  z-index: 5;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -788,28 +787,6 @@ body.menu-open {
 }
 
 .wave-to-cream path {
-  fill: var(--bg-cream);
-}
-
-/* Wavy Organic Transition attached directly to bottom of hero photo (Zero Black Gap) */
-.hero-section .wave-to-cream {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  line-height: 0;
-  z-index: 4;
-  margin-top: 0;
-  pointer-events: none;
-}
-
-.hero-section .wave-to-cream svg {
-  display: block;
-  width: 100%;
-  height: 65px;
-}
-
-.hero-section .wave-to-cream path {
   fill: var(--bg-cream);
 }
 
@@ -941,8 +918,8 @@ body.menu-open {
    -------------------------------------------------------------------------- */
 .decor-quotes-strip {
   position: relative;
-  background: linear-gradient(180deg, #FAF7F2 0%, #FAF6F0 100%);
-  border-top: none;
+  background: linear-gradient(180deg, #F8F3EC 0%, #FAF6F0 100%);
+  border-top: 1px solid rgba(200, 162, 97, 0.22);
   border-bottom: 1px solid rgba(200, 162, 97, 0.22);
   padding: 22px 0;
   overflow: hidden;
