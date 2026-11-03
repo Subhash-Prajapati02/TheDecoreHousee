@@ -60,19 +60,51 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+  box-sizing: border-box;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
   font-family: var(--font-sans);
   background-color: var(--bg-dark);
   color: var(--text-light);
   line-height: 1.6;
-  overflow-x: hidden;
   position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Universal Layout Boundary Containment (Completely prevents mobile right-side canvas expansion) */
+main,
+section,
+.hero-section,
+.services-section,
+.gallery-section,
+.single-cinema-section,
+.about-section,
+.process-section,
+.instagram-section,
+.inquiry-section,
+.site-footer,
+.decor-quotes-strip,
+.wave-divider {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
+  contain: paint;
 }
 
 img, svg {
@@ -276,7 +308,10 @@ ul, ol {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   z-index: 1000;
   padding: 18px 0;
   transition: all var(--transition-normal);
@@ -448,9 +483,12 @@ ul, ol {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   height: 100dvh;
+  box-sizing: border-box;
   background-color: #000000 !important;
   z-index: 99999;
   padding: 24px 20px 28px;
@@ -772,14 +810,19 @@ body.menu-open {
 .wave-divider {
   position: relative;
   width: 100%;
+  max-width: 100%;
   line-height: 0;
   z-index: 4;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .wave-divider svg {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
+  box-sizing: border-box;
 }
 
 .wave-to-cream {
@@ -1061,6 +1104,10 @@ body.menu-open {
 .services-slider-container {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .services-track {
@@ -2969,7 +3016,10 @@ body.menu-open {
   .process-interactive-timeline {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding-left: 20px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
   .process-step-node {
     flex-direction: row;
@@ -3203,5 +3253,64 @@ body.menu-open {
   .instagram-card {
     aspect-ratio: 1.25 / 1 !important; /* Extra horizontal stretch on small mobile screens */
     max-height: 155px !important;
+  }
+}
+
+
+/* Mobile Responsive Guardrails - Prevent Any Decorative Graphics from Exceeding Viewport */
+@media (max-width: 768px) {
+  .container-wide {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .floral-animated-branch.branch-tr {
+    right: 0 !important;
+    top: -15px !important;
+    width: 180px !important;
+    height: 180px !important;
+    max-width: 48vw !important;
+    max-height: 48vw !important;
+  }
+
+  .floral-animated-branch.branch-bl {
+    left: 0 !important;
+    bottom: -15px !important;
+    width: 180px !important;
+    height: 180px !important;
+    max-width: 48vw !important;
+    max-height: 48vw !important;
+  }
+
+  .section-line-design {
+    max-width: 45vw !important;
+    max-height: 45vw !important;
+  }
+
+  .services-line-tr,
+  .process-line-tr,
+  .instagram-line-br {
+    right: 0 !important;
+  }
+
+  .services-line-bl {
+    left: 0 !important;
+  }
+
+  .about-extending-floral {
+    right: 0 !important;
+    bottom: -20px !important;
+    width: 160px !important;
+    height: 160px !important;
+    max-width: 45vw !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-wide {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 }
