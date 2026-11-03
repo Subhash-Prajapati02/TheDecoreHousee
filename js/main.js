@@ -571,95 +571,94 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================================
-  // 5. SINGLE CINEMATIC VIDEO PRESENTATION & MODAL
+  // 5. CINEMATIC VIDEO SHOWCASE (Compact Card & Modal Integration)
   // ========================================================================
   const videoModal = document.getElementById('videoModal');
-  const cinemaPlayer = document.getElementById('cinemaPlayer');
   const videoModalClose = document.getElementById('videoModalClose');
-  const cinemaCardTrigger = document.getElementById('cinemaCardTrigger');
+  const modalVideoPlayer = document.getElementById('modalVideoPlayer');
   const playStoryBtn = document.getElementById('playStoryBtn');
-  const cinemaPlayToggle = document.getElementById('cinemaPlayToggle');
-  const cinemaProgressBar = document.getElementById('cinemaProgressBar');
-  const cinemaTimeDisplay = document.getElementById('cinemaTimeDisplay');
-  const cinemaScrubber = document.getElementById('cinemaScrubber');
+  const cinemaCard = document.getElementById('cinemaCardTrigger');
+  const showcaseVideo = document.getElementById('showcaseVideo');
+  const cinemaPlayBtn = document.getElementById('cinemaPlayBtn');
 
-  let isPlaying = false;
-  let playSeconds = 45;
-  let playerTicker = null;
-  const totalVideoDuration = 180; // 3 minutes
+  // Compact Showcase Card Video Playback
+  if (cinemaCard && showcaseVideo) {
+    const playShowcase = () => {
+      showcaseVideo.play().then(() => {
+        cinemaCard.classList.add('is-playing');
+        showcaseVideo.controls = true;
+      }).catch((err) => {
+        console.warn('Video play triggered:', err);
+      });
+    };
 
+    const pauseShowcase = () => {
+      showcaseVideo.pause();
+    };
+
+    if (cinemaPlayBtn) {
+      cinemaPlayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playShowcase();
+      });
+    }
+
+    cinemaCard.addEventListener('click', (e) => {
+      if (e.target === showcaseVideo && showcaseVideo.controls) return;
+      if (showcaseVideo.paused) {
+        playShowcase();
+      } else {
+        pauseShowcase();
+      }
+    });
+
+    cinemaCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (showcaseVideo.paused) {
+          playShowcase();
+        } else {
+          pauseShowcase();
+        }
+      }
+    });
+
+    showcaseVideo.addEventListener('ended', () => {
+      cinemaCard.classList.remove('is-playing');
+      showcaseVideo.controls = false;
+      showcaseVideo.load();
+    });
+
+    showcaseVideo.addEventListener('pause', () => {
+      if (!showcaseVideo.seeking && showcaseVideo.currentTime === 0) {
+        cinemaCard.classList.remove('is-playing');
+        showcaseVideo.controls = false;
+      }
+    });
+  }
+
+  // Modal Video Handling (Used by Watch Our Story button)
   const openVideoModal = () => {
+    if (!videoModal) return;
     videoModal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    startCinemaPlayback();
+    if (modalVideoPlayer) {
+      modalVideoPlayer.currentTime = 0;
+      modalVideoPlayer.play().catch(() => {});
+    }
   };
 
   const closeVideoModal = () => {
+    if (!videoModal) return;
     videoModal.classList.remove('active');
     document.body.style.overflow = '';
-    stopCinemaPlayback();
+    if (modalVideoPlayer) {
+      modalVideoPlayer.pause();
+    }
   };
-
-  const updateCinemaUI = () => {
-    const progress = (playSeconds / totalVideoDuration) * 100;
-    if (cinemaProgressBar) cinemaProgressBar.style.width = `${progress}%`;
-
-    const m = Math.floor(playSeconds / 60).toString().padStart(2, '0');
-    const s = (playSeconds % 60).toString().padStart(2, '0');
-    if (cinemaTimeDisplay) cinemaTimeDisplay.textContent = `${m}:${s} / 03:00`;
-  };
-
-  const startCinemaPlayback = () => {
-    isPlaying = true;
-    if (cinemaPlayToggle) cinemaPlayToggle.innerHTML = '⏸ Pause';
-    clearInterval(playerTicker);
-
-    playerTicker = setInterval(() => {
-      if (!isPlaying) return;
-      playSeconds = (playSeconds + 1) % totalVideoDuration;
-      updateCinemaUI();
-    }, 1000);
-    updateCinemaUI();
-  };
-
-  const stopCinemaPlayback = () => {
-    isPlaying = false;
-    clearInterval(playerTicker);
-    if (cinemaPlayToggle) cinemaPlayToggle.innerHTML = '▶ Play';
-  };
-
-  if (cinemaCardTrigger) {
-    cinemaCardTrigger.addEventListener('click', openVideoModal);
-    cinemaCardTrigger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openVideoModal();
-      }
-    });
-  }
 
   if (playStoryBtn) {
     playStoryBtn.addEventListener('click', openVideoModal);
-  }
-
-  if (cinemaPlayToggle) {
-    cinemaPlayToggle.addEventListener('click', () => {
-      if (isPlaying) {
-        stopCinemaPlayback();
-      } else {
-        startCinemaPlayback();
-      }
-    });
-  }
-
-  if (cinemaScrubber) {
-    cinemaScrubber.addEventListener('click', (e) => {
-      const rect = cinemaScrubber.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
-      playSeconds = Math.floor(ratio * totalVideoDuration);
-      updateCinemaUI();
-    });
   }
 
   if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);

@@ -663,7 +663,7 @@ body.menu-open {
   align-items: center;
   background-color: var(--bg-dark);
   overflow: hidden;
-  padding: 130px 0 100px;
+  padding: 130px 0 110px;
 }
 
 .hero-slider {
@@ -702,10 +702,10 @@ body.menu-open {
   z-index: 2;
   background: linear-gradient(
     90deg,
-    rgba(10, 10, 10, 0.95) 0%,
-    rgba(10, 10, 10, 0.85) 45%,
-    rgba(10, 10, 10, 0.35) 80%,
-    rgba(10, 10, 10, 0.45) 100%
+    rgba(10, 10, 10, 0.70) 0%,
+    rgba(10, 10, 10, 0.45) 45%,
+    rgba(10, 10, 10, 0.15) 80%,
+    rgba(10, 10, 10, 0.22) 100%
   );
 }
 
@@ -778,13 +778,39 @@ body.menu-open {
 /* Slider Pagination Indicators */
 .hero-slider-nav {
   position: absolute;
-  bottom: 65px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 6;
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Wavy Organic Transition attached directly to bottom of hero photo (Zero Black Gap) */
+.hero-section .wave-to-cream {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  line-height: 0;
+  z-index: 5;
+  margin-top: 0;
+  pointer-events: none;
+}
+
+.hero-section .wave-to-cream svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.hero-section .wave-to-cream path {
+  fill: var(--bg-cream);
 }
 
 .slider-dot {
@@ -961,8 +987,8 @@ body.menu-open {
    -------------------------------------------------------------------------- */
 .decor-quotes-strip {
   position: relative;
-  background: linear-gradient(180deg, #F8F3EC 0%, #FAF6F0 100%);
-  border-top: 1px solid rgba(200, 162, 97, 0.22);
+  background: linear-gradient(180deg, #FAF7F2 0%, #FAF6F0 100%);
+  border-top: none;
   border-bottom: 1px solid rgba(200, 162, 97, 0.22);
   padding: 22px 0;
   overflow: hidden;
@@ -1582,55 +1608,66 @@ body.menu-open {
 .single-cinema-section {
   position: relative;
   background-color: var(--bg-dark);
-  padding: 20px 0 100px;
+  padding: 55px 0 65px;
   overflow: hidden;
 }
 
 .cinema-header {
   text-align: center;
-  margin-bottom: 40px;
+  max-width: 720px;
+  margin: 0 auto 26px;
   position: relative;
   z-index: 2;
 }
 
 .cinema-header .section-desc {
   margin: 0 auto;
+  max-width: 580px;
 }
 
 .cinema-container {
   position: relative;
-  max-width: 1140px;
+  max-width: 760px;
+  width: 100%;
   margin: 0 auto;
   z-index: 2;
 }
 
 .cinema-presentation-card {
   position: relative;
-  border-radius: var(--radius-xl);
+  width: 100%;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1.5px solid rgba(229, 195, 136, 0.35);
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.8), 0 0 35px rgba(229, 195, 136, 0.2);
+  border: 1.5px solid rgba(229, 195, 136, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(229, 195, 136, 0.2);
   aspect-ratio: 16 / 9;
   background-color: #000000;
   cursor: pointer;
-  transition: transform var(--transition-normal), border-color var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .cinema-presentation-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: var(--gold-champagne);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(229, 195, 136, 0.35);
 }
 
-.cinema-poster-img {
+.cinema-video-element {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  background-color: #000000;
+  border-radius: 20px;
 }
 
-.cinema-presentation-card:hover .cinema-poster-img {
-  transform: scale(1.04);
+.modal-video-element {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  display: block;
+  border-radius: 14px;
+  background-color: #000000;
 }
 
 .cinema-card-overlay {
@@ -1639,25 +1676,33 @@ body.menu-open {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.75) 100%);
+  background: radial-gradient(circle at center, rgba(10, 10, 10, 0.15) 0%, rgba(10, 10, 10, 0.65) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 30px;
+  padding: 24px 20px;
   text-align: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 3;
+}
+
+.cinema-presentation-card.is-playing .cinema-card-overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .cinema-badge-top {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px;
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
-  background: rgba(18, 17, 16, 0.75);
+  background: rgba(18, 17, 16, 0.82);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(229, 195, 136, 0.35);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-champagne);
@@ -1666,43 +1711,47 @@ body.menu-open {
 /* Central Cinematic Play Button with Glowing Rings */
 .cinema-play-button-center {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: var(--gold-gradient);
   color: #1A1713;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 35px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
+  border: none;
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .cinema-presentation-card:hover .cinema-play-button-center {
-  transform: scale(1.14);
-  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.75);
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.75);
 }
 
 .cinema-play-pulse {
   position: absolute;
-  top: -12px;
-  left: -12px;
-  right: -12px;
-  bottom: -12px;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
   border-radius: 50%;
   border: 2px solid var(--gold-champagne);
   animation: cinemaPulse 2.4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
 .cinema-play-pulse-inner {
   position: absolute;
-  top: -24px;
-  left: -24px;
-  right: -24px;
-  bottom: -24px;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
   border-radius: 50%;
   border: 1px solid rgba(229, 195, 136, 0.5);
   animation: cinemaPulse 2.4s infinite 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
 @keyframes cinemaPulse {
@@ -1711,13 +1760,13 @@ body.menu-open {
 }
 
 .cinema-bottom-meta {
-  background: rgba(18, 17, 16, 0.7);
+  background: rgba(18, 17, 16, 0.8);
   backdrop-filter: blur(10px);
-  padding: 10px 24px;
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(229, 195, 136, 0.25);
   color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   letter-spacing: 0.04em;
 }
 
@@ -3312,5 +3361,44 @@ body.menu-open {
   .container-wide {
     padding-left: 14px !important;
     padding-right: 14px !important;
+  }
+}
+
+
+/* Responsive Enhancements for Hero Wave & Compact Cinema Card */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 110px 0 90px;
+  }
+  .hero-slider-nav {
+    bottom: 60px;
+  }
+  .hero-section .wave-to-cream svg {
+    height: 48px;
+  }
+  .single-cinema-section {
+    padding: 42px 0 48px;
+  }
+  .cinema-container {
+    max-width: 100%;
+  }
+  .cinema-presentation-card {
+    border-radius: 16px;
+  }
+  .cinema-video-element {
+    border-radius: 16px;
+  }
+  .cinema-play-button-center {
+    width: 56px;
+    height: 56px;
+  }
+  .cinema-play-button-center svg {
+    width: 24px;
+    height: 24px;
+  }
+  .cinema-bottom-meta {
+    font-size: 0.72rem;
+    padding: 6px 14px;
   }
 }
