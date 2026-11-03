@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleHeaderScroll, { passive: true });
   handleHeaderScroll();
 
-  // Mobile Menu Toggle (Luxury Full-Screen Overlay with Scroll Lock)
+  // Mobile Menu Toggle with Gold-Standard Body Scroll Lock (Drawer scrolls freely, background frozen)
   const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+  let savedScrollY = 0;
 
   const toggleMobileMenu = (open) => {
     const shouldOpen = open !== undefined ? open : !mobileDrawer.classList.contains('open');
@@ -38,17 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileDrawer) mobileDrawer.classList.toggle('open', shouldOpen);
     if (mobileBackdrop) mobileBackdrop.classList.toggle('open', shouldOpen);
 
-    // Stop background scrolling completely when mobile menu is open
+    // Stop background scrolling when mobile menu is open, while keeping menu drawer independently scrollable
     if (shouldOpen) {
-      document.body.classList.add('menu-open');
-      document.documentElement.classList.add('menu-open');
+      savedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
     } else {
-      document.body.classList.remove('menu-open');
-      document.documentElement.classList.remove('menu-open');
+      const restoreY = savedScrollY;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
       document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      document.body.classList.remove('menu-open');
+      window.scrollTo(0, restoreY);
     }
   };
 
@@ -69,6 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileBackdrop) {
     mobileBackdrop.addEventListener('click', () => toggleMobileMenu(false));
   }
+
+  // Prevent background touch drag while allowing menu drawer to scroll smoothly
+  document.addEventListener('touchmove', (e) => {
+    if (document.body.classList.contains('menu-open')) {
+      if (!e.target.closest('#mobileNavDrawer')) {
+        e.preventDefault();
+      }
+    }
+  }, { passive: false });
 
   // Robust Smooth Section Scrolling (Desktop + Mobile)
   const scrollToTarget = (targetId) => {
