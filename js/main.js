@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleHeaderScroll, { passive: true });
   handleHeaderScroll();
 
-  // Mobile Menu Toggle (Alfaaz-Inspired Smooth Dropdown)
+  // Mobile Menu Toggle (Luxury Full-Screen Overlay with Scroll Lock)
+  const mobileMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+
   const toggleMobileMenu = (open) => {
     const shouldOpen = open !== undefined ? open : !mobileDrawer.classList.contains('open');
     if (hamburger) {
@@ -35,12 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (mobileDrawer) mobileDrawer.classList.toggle('open', shouldOpen);
     if (mobileBackdrop) mobileBackdrop.classList.toggle('open', shouldOpen);
+
+    // Stop background scrolling completely when mobile menu is open
+    if (shouldOpen) {
+      document.body.classList.add('menu-open');
+      document.documentElement.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
   };
 
   if (hamburger) {
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMobileMenu();
+    });
+  }
+
+  if (mobileMenuCloseBtn) {
+    mobileMenuCloseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMobileMenu(false);
     });
   }
 
