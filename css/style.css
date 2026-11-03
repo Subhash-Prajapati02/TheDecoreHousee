@@ -440,7 +440,7 @@ ul, ol {
   background-color: var(--gold-champagne);
 }
 
-/* Mobile Navigation Panel (Luxury Full-Screen Overlay) */
+/* Mobile Navigation Panel (2026 Luxury Editorial Experience) */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
@@ -448,11 +448,11 @@ ul, ol {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background: rgba(10, 9, 8, 0.98);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  background: radial-gradient(circle at 85% 15%, rgba(229, 195, 136, 0.15) 0%, rgba(10, 9, 8, 0.98) 65%);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
   z-index: 99999;
-  padding: 24px 28px 36px;
+  padding: 20px 24px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -465,7 +465,7 @@ ul, ol {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: scale(0.98);
+  transform: scale(0.97);
   transition: opacity 0.35s ease, 
               visibility 0.35s ease, 
               transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -476,6 +476,19 @@ ul, ol {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+/* Ambient Subtle Floral Watermark */
+.mobile-nav-floral-decor {
+  position: absolute;
+  bottom: -40px;
+  left: -50px;
+  width: 240px;
+  height: 240px;
+  opacity: 0.08;
+  pointer-events: none;
+  filter: brightness(1.5);
+  transform: rotate(30deg);
 }
 
 /* Stop background scrolling when mobile menu is open without preventing drawer scrolling */
@@ -490,28 +503,30 @@ body.menu-open {
   justify-content: space-between;
   width: 100%;
   max-width: 520px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(229, 195, 136, 0.2);
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(229, 195, 136, 0.18);
+  position: relative;
+  z-index: 2;
 }
 
 .mobile-nav-top-bar .brand-logo img {
-  height: 44px;
+  height: 42px;
   width: auto;
   object-fit: contain;
 }
 
 .mobile-close-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  border: 1.5px solid rgba(229, 195, 136, 0.35);
-  background: rgba(22, 20, 18, 0.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(229, 195, 136, 0.45);
+  background: rgba(22, 20, 18, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--gold-champagne);
-  transition: all var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-close-btn:hover,
@@ -519,6 +534,8 @@ body.menu-open {
   background: var(--gold-champagne);
   color: #0A0A0A;
   border-color: var(--gold-champagne);
+  transform: rotate(90deg);
+  box-shadow: 0 0 16px rgba(229, 195, 136, 0.6);
 }
 
 .mobile-nav-backdrop {
@@ -543,61 +560,179 @@ body.menu-open {
   pointer-events: auto;
 }
 
+/* Modern Luxury Editorial Navigation Links */
 .mobile-menu-links {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   width: 100%;
   max-width: 520px;
-  gap: 2px;
+  gap: 3px;
   margin: auto 0;
-  padding: 16px 0;
+  padding: 10px 0;
+  position: relative;
+  z-index: 2;
 }
 
-.mobile-menu-links a {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  letter-spacing: 0.04em;
-  color: var(--text-light);
+.mobile-nav-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding: 15px 4px;
-  border-bottom: 1px solid rgba(229, 195, 136, 0.12);
-  transition: all var(--transition-fast);
-  cursor: pointer;
+  padding: 11px 12px;
+  border-radius: 12px;
+  background: transparent;
   text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mobile-menu-links a:last-child {
-  border-bottom: none;
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+  background: rgba(229, 195, 136, 0.08);
+  border-color: rgba(229, 195, 136, 0.22);
+  padding-left: 16px;
 }
 
-.mobile-menu-links a .nav-arrow {
+.mobile-nav-num {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   color: var(--gold-champagne);
-  font-size: 1.35rem;
-  transition: transform var(--transition-fast);
+  opacity: 0.7;
+  width: 28px;
 }
 
-.mobile-menu-links a:hover,
-.mobile-menu-links a.active {
+.mobile-nav-label {
+  flex: 1;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-light);
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-item:hover .mobile-nav-label {
   color: var(--gold-champagne);
-  padding-left: 8px;
 }
 
-.mobile-menu-links a:hover .nav-arrow {
-  transform: translateX(6px);
+.mobile-nav-spark {
+  color: var(--gold-champagne);
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.25s ease;
 }
 
+.mobile-nav-item:hover .mobile-nav-spark,
+.mobile-nav-item.active .mobile-nav-spark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Modern Luxury Footer Card with Dual Numbers & Bhopal Location */
 .mobile-nav-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 520px;
-  gap: 12px;
-  padding-top: 16px;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(229, 195, 136, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-nav-location-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(229, 195, 136, 0.1);
+  border: 1px solid rgba(229, 195, 136, 0.28);
+  color: var(--gold-champagne);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
+}
+
+.mobile-nav-calls-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.mobile-nav-call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 8px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(229, 195, 136, 0.22) 0%, rgba(200, 162, 97, 0.1) 100%);
+  border: 1.2px solid rgba(229, 195, 136, 0.45);
+  color: var(--text-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-call-btn svg {
+  color: var(--gold-champagne);
+  flex-shrink: 0;
+}
+
+.mobile-nav-call-btn:hover,
+.mobile-nav-call-btn:active {
+  background: var(--gold-champagne);
+  color: #0A0A0A;
+  border-color: var(--gold-champagne);
+  box-shadow: 0 4px 14px rgba(229, 195, 136, 0.4);
+}
+
+.mobile-nav-call-btn:hover svg {
+  color: #0A0A0A;
+}
+
+.mobile-nav-social-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.mobile-nav-social-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-light);
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-social-pill:hover {
+  background: rgba(229, 195, 136, 0.15);
+  border-color: var(--gold-champagne);
+  color: var(--gold-champagne);
+}
+
+.mobile-nav-social-pill.whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: #FFFFFF;
 }
 
 /* --------------------------------------------------------------------------
@@ -1687,32 +1822,35 @@ body.menu-open {
 .about-section {
   position: relative;
   background-color: var(--bg-cream);
-  padding: 60px 0 100px;
+  padding: 38px 0 48px; /* Compact height so it fits seamlessly in one view */
   overflow: hidden;
 }
 
 .about-split-layout {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
-  gap: 55px;
+  gap: 36px;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
-/* Large HD Image with Arched Editorial Frame */
+/* Large HD Image with Arched Editorial Frame - Compact Desktop Scale */
 .about-image-wrapper {
   position: relative;
+  max-width: 380px;
+  margin: 0 auto;
 }
 
 .about-editorial-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 4.9;
-  border-radius: 220px 220px 32px 32px;
+  aspect-ratio: 4 / 4.4;
+  max-height: 420px;
+  border-radius: 180px 180px 24px 24px;
   overflow: hidden;
-  box-shadow: 0 24px 50px rgba(100, 75, 40, 0.18);
-  border: 4px solid #FFFFFF;
+  box-shadow: 0 18px 40px rgba(100, 75, 40, 0.16);
+  border: 3.5px solid #FFFFFF;
   background-color: var(--bg-cream-warm);
 }
 
@@ -1760,49 +1898,49 @@ body.menu-open {
 
 .about-content-column .section-title {
   color: var(--text-dark);
-  font-size: clamp(2.1rem, 3.4vw, 3rem);
-  line-height: 1.25;
-  margin-bottom: 22px;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
 }
 
 .about-text-lead {
-  font-size: 1.08rem;
+  font-size: 0.96rem;
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 1.55;
   color: #38342E;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .about-text-body {
-  font-size: 0.98rem;
-  line-height: 1.8;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-dark-muted);
+  margin-bottom: 8px;
+}
+
+.about-text-approach {
+  font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--text-dark-muted);
   margin-bottom: 16px;
 }
 
-.about-text-approach {
-  font-size: 0.98rem;
-  line-height: 1.8;
-  color: var(--text-dark-muted);
-  margin-bottom: 30px;
-}
-
-/* 4 Feature Highlights in a 2x2 Clean Grid */
+/* 4 Feature Highlights in a 2x2 Clean Grid - Compact */
 .about-features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 34px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .about-feature-card {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   background: var(--bg-cream-surface);
   border: 1px solid var(--bg-cream-border);
-  border-radius: var(--radius-md);
-  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
@@ -2270,6 +2408,39 @@ body.menu-open {
 }
 
 /* Black Circle Social Buttons (Instagram, Email, X) */
+
+/* Location Badge in Contact Glass Card */
+.contact-location-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  color: #38342E;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.contact-location-badge svg {
+  color: var(--gold-dark);
+}
+
+.footer-phones-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-phones-group .phone-sep {
+  color: var(--gold-champagne);
+  opacity: 0.5;
+}
+
 .contact-social-row {
   display: flex;
   align-items: center;
@@ -2892,12 +3063,48 @@ body.menu-open {
   .gallery-masonry {
     grid-template-columns: 1fr;
   }
+  /* Gallery Images Compact Size on Mobile View (as requested in screenshot) */
+  .gallery-masonry {
+    gap: 14px !important;
+  }
+
+  .gallery-item,
   .gallery-item.span-7,
   .gallery-item.span-5,
   .gallery-item.span-4,
   .gallery-item.span-8 {
-    grid-column: span 1;
-    aspect-ratio: 4 / 3 !important;
+    grid-column: span 1 !important;
+    aspect-ratio: 16 / 10 !important;
+    max-height: 220px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+  }
+
+  .gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* About Us Arched Image Compact Size on Mobile View (as requested in screenshot) */
+  .about-image-wrapper {
+    max-width: 210px !important;
+    margin: 0 auto 18px !important;
+  }
+
+  .about-editorial-frame {
+    aspect-ratio: 4 / 4.2 !important;
+    max-height: 230px !important;
+    border-radius: 110px 110px 18px 18px !important;
+    border-width: 3px !important;
+  }
+
+  .about-editorial-frame::after {
+    top: 6px !important;
+    left: 6px !important;
+    right: 6px !important;
+    bottom: 6px !important;
+    border-radius: 102px 102px 12px 12px !important;
   }
 
   /* Work Process Mobile Vertical Timeline */
