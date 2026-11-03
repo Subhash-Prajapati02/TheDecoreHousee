@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=3.3">
+  <link rel="stylesheet" href="css/style.css?v=3.4">
 </head>
 <body>
 
@@ -64,102 +64,60 @@
   <!-- Mobile Navigation Menu (Luxury Full-Screen Overlay) -->
   <div class="mobile-nav-backdrop"></div>
   <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
-    <!-- Ambient Floral Watermark -->
-    <img src="assets/images/icons/luxury-floral-branch.svg" class="mobile-nav-floral-decor" alt="" aria-hidden="true">
-
     <div class="mobile-nav-top-bar">
       <a href="#home" class="brand-logo" aria-label="The Decore House Home">
         <img src="assets/images/logo/logo-white.png" alt="The Decore House">
       </a>
       <button class="mobile-close-btn" id="mobileMenuCloseBtn" aria-label="Close Navigation Menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
 
-    <!-- Modern Luxury Editorial Navigation Links -->
-    <nav class="mobile-menu-links" aria-label="Mobile Navigation Links">
-      <a href="#home" class="mobile-nav-item">
-        <span class="mobile-nav-num">01</span>
-        <span class="mobile-nav-label">Home</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-      <a href="#services" class="mobile-nav-item">
-        <span class="mobile-nav-num">02</span>
-        <span class="mobile-nav-label">Services</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-      <a href="#gallery" class="mobile-nav-item">
-        <span class="mobile-nav-num">03</span>
-        <span class="mobile-nav-label">Gallery</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-      <a href="#videos" class="mobile-nav-item">
-        <span class="mobile-nav-num">04</span>
-        <span class="mobile-nav-label">Showcase</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-      <a href="#about" class="mobile-nav-item">
-        <span class="mobile-nav-num">05</span>
-        <span class="mobile-nav-label">About Us</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-      <a href="#process" class="mobile-nav-item">
-        <span class="mobile-nav-num">06</span>
-        <span class="mobile-nav-label">Work Process</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-      <a href="#contact" class="mobile-nav-item">
-        <span class="mobile-nav-num">07</span>
-        <span class="mobile-nav-label">Contact</span>
-        <span class="mobile-nav-spark">✦</span>
-      </a>
-    </nav>
+    <!-- Centered Stack with Thin Gold Dividers (Exactly matching Image 4 reference) -->
+    <nav class="mobile-menu-exact" aria-label="Mobile Navigation Links">
+      <a href="#home" class="mobile-exact-link">HOME</a>
+      <div class="mobile-exact-divider"></div>
 
-    <!-- Modern Luxury Quick-Action Card with Both Phone Numbers & Bhopal Location -->
-    <div class="mobile-nav-footer">
-      <div class="mobile-nav-location-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
+      <a href="#services" class="mobile-exact-link">SERVICES</a>
+      <div class="mobile-exact-divider"></div>
+
+      <a href="#gallery" class="mobile-exact-link">GALLERY</a>
+      <div class="mobile-exact-divider"></div>
+
+      <a href="#videos" class="mobile-exact-link">SHOWCASE</a>
+      <div class="mobile-exact-divider"></div>
+
+      <a href="#about" class="mobile-exact-link">ABOUT US</a>
+      <div class="mobile-exact-divider"></div>
+
+      <a href="#process" class="mobile-exact-link">WORK PROCESS</a>
+      <div class="mobile-exact-divider"></div>
+
+      <a href="#contact" class="mobile-exact-link">CONTACT</a>
+      <div class="mobile-exact-divider"></div>
+
+      <!-- Follow on Instagram Pill Button matching reference -->
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mobile-exact-ig-btn" aria-label="Follow us on Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
         </svg>
-        <span>Bhopal, Madhya Pradesh</span>
+        <span>Follow On Instagram</span>
+      </a>
+
+      <!-- Tagline matching reference -->
+      <div class="mobile-exact-tagline">
+        <span class="spark">✦</span>
+        <span>EVERY DETAIL, MADE WITH LOVE</span>
+        <span class="spark">✦</span>
       </div>
 
-      <div class="mobile-nav-calls-row">
-        <a href="tel:+917354523907" class="mobile-nav-call-btn" aria-label="Call +91 73545 23907">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>+91 73545 23907</span>
-        </a>
-        <a href="tel:+916263637715" class="mobile-nav-call-btn" aria-label="Call +91 6263637715">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>+91 6263637715</span>
-        </a>
-      </div>
-
-      <div class="mobile-nav-social-row">
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-pill" aria-label="Follow us on Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-          </svg>
-          <span>Instagram</span>
-        </a>
-        <a href="https://wa.me/917354523907?text=Hello%20The%20Decore%20House,%20I%20would%20like%20to%20inquire%20about%20event%20decorations." target="_blank" rel="noopener noreferrer" class="mobile-nav-social-pill whatsapp" aria-label="Chat on WhatsApp">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-          </svg>
-          <span>WhatsApp</span>
-        </a>
-      </div>
-    </div>
+      <div class="mobile-exact-divider bottom-bar"></div>
+    </nav>
   </aside>
 
   <main>
@@ -262,6 +220,9 @@
          C. Services Section
          ======================================================================== -->
     <section id="services" class="services-section">
+      <!-- Ambient Luxury Floral Tendril Line Art (Image 5 Design) -->
+      <img src="assets/images/icons/luxury-floral-branch.svg" class="section-line-design services-line-tr" alt="" aria-hidden="true">
+      <img src="assets/images/icons/luxury-floral-branch.svg" class="section-line-design services-line-bl" alt="" aria-hidden="true">
       <div class="container">
         <div class="services-header reveal-on-scroll">
           <div class="section-tag dark-text">
@@ -813,6 +774,8 @@
          4. WORK PROCESS SECTION – INTERACTIVE TIMELINE
          ======================================================================== -->
     <section id="process" class="process-section">
+      <!-- Ambient Luxury Floral Tendril Line Art (Image 5 Design) -->
+      <img src="assets/images/icons/luxury-floral-branch.svg" class="section-line-design process-line-tr" alt="" aria-hidden="true">
       <div class="container">
         <div class="process-header-block reveal-on-scroll">
           <div class="section-tag dark-text">
@@ -896,6 +859,8 @@
          G. Instagram Section (Follow Our Celebrations)
          ======================================================================== -->
     <section class="instagram-section">
+      <!-- Ambient Luxury Floral Tendril Line Art (Image 5 Design) -->
+      <img src="assets/images/icons/luxury-floral-branch.svg" class="section-line-design instagram-line-br" alt="" aria-hidden="true">
       <div class="container">
         <div class="instagram-layout">
           <!-- Left Column: Title & Follow Button -->
@@ -1286,6 +1251,6 @@
   </div>
 
   <!-- Main JavaScript File -->
-  <script src="js/main.js?v=3.3"></script>
+  <script src="js/main.js?v=3.4"></script>
 </body>
 </html>

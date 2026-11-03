@@ -440,7 +440,11 @@ ul, ol {
   background-color: var(--gold-champagne);
 }
 
-/* Mobile Navigation Panel (2026 Luxury Editorial Experience) */
+/* ==========================================================================
+   Mobile Navigation Drawer (Exact Match to Image 4 Reference)
+   Pure Deep Black, Centered Uppercase Serif Links, Thin Gold Dividers,
+   Gold Outlined Pill Instagram Button, and Sparkling Tagline
+   ========================================================================== */
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
@@ -448,27 +452,25 @@ ul, ol {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background: radial-gradient(circle at 85% 15%, rgba(229, 195, 136, 0.15) 0%, rgba(10, 9, 8, 0.98) 65%);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
+  background-color: #000000 !important;
   z-index: 99999;
-  padding: 20px 24px 24px;
+  padding: 24px 20px 28px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch !important;
   touch-action: pan-y !important;
   overscroll-behavior: contain !important;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.95);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: scale(0.97);
-  transition: opacity 0.35s ease, 
-              visibility 0.35s ease, 
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.98);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-nav-drawer.open {
@@ -478,20 +480,6 @@ ul, ol {
   pointer-events: auto;
 }
 
-/* Ambient Subtle Floral Watermark */
-.mobile-nav-floral-decor {
-  position: absolute;
-  bottom: -40px;
-  left: -50px;
-  width: 240px;
-  height: 240px;
-  opacity: 0.08;
-  pointer-events: none;
-  filter: brightness(1.5);
-  transform: rotate(30deg);
-}
-
-/* Stop background scrolling when mobile menu is open without preventing drawer scrolling */
 body.menu-open {
   overflow: hidden !important;
   height: 100% !important;
@@ -502,11 +490,9 @@ body.menu-open {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 520px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(229, 195, 136, 0.18);
-  position: relative;
-  z-index: 2;
+  max-width: 440px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(229, 195, 136, 0.22);
 }
 
 .mobile-nav-top-bar .brand-logo img {
@@ -516,223 +502,118 @@ body.menu-open {
 }
 
 .mobile-close-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(229, 195, 136, 0.45);
-  background: rgba(22, 20, 18, 0.8);
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(229, 195, 136, 0.4);
+  background: rgba(26, 24, 21, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--gold-champagne);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
 }
 
 .mobile-close-btn:hover,
 .mobile-close-btn:active {
   background: var(--gold-champagne);
-  color: #0A0A0A;
+  color: #000000;
   border-color: var(--gold-champagne);
   transform: rotate(90deg);
-  box-shadow: 0 0 16px rgba(229, 195, 136, 0.6);
 }
 
-.mobile-nav-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  z-index: 9998;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.mobile-nav-backdrop.open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* Modern Luxury Editorial Navigation Links */
-.mobile-menu-links {
+.mobile-menu-exact {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   width: 100%;
-  max-width: 520px;
-  gap: 3px;
+  max-width: 440px;
   margin: auto 0;
-  padding: 10px 0;
-  position: relative;
-  z-index: 2;
+  padding: 16px 0 10px;
 }
 
-.mobile-nav-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 11px 12px;
-  border-radius: 12px;
-  background: transparent;
-  text-decoration: none;
-  border: 1px solid transparent;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.mobile-nav-item:hover,
-.mobile-nav-item.active {
-  background: rgba(229, 195, 136, 0.08);
-  border-color: rgba(229, 195, 136, 0.22);
-  padding-left: 16px;
-}
-
-.mobile-nav-num {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--gold-champagne);
-  opacity: 0.7;
-  width: 28px;
-}
-
-.mobile-nav-label {
-  flex: 1;
+.mobile-exact-link {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: 1.12rem;
   font-weight: 500;
-  letter-spacing: 0.03em;
-  color: var(--text-light);
-  transition: color 0.2s ease;
-}
-
-.mobile-nav-item:hover .mobile-nav-label {
-  color: var(--gold-champagne);
-}
-
-.mobile-nav-spark {
-  color: var(--gold-champagne);
-  font-size: 0.85rem;
-  opacity: 0;
-  transform: scale(0.6);
-  transition: all 0.25s ease;
-}
-
-.mobile-nav-item:hover .mobile-nav-spark,
-.mobile-nav-item.active .mobile-nav-spark {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Modern Luxury Footer Card with Dual Numbers & Bhopal Location */
-.mobile-nav-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 11px 16px;
   width: 100%;
-  max-width: 520px;
-  gap: 8px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(229, 195, 136, 0.15);
-  position: relative;
-  z-index: 2;
+  display: block;
+  text-decoration: none;
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
 }
 
-.mobile-nav-location-pill {
+.mobile-exact-link:hover,
+.mobile-exact-link:active,
+.mobile-exact-link.active {
+  color: var(--gold-champagne);
+  letter-spacing: 0.24em;
+}
+
+.mobile-exact-divider {
+  width: 90%;
+  max-width: 380px;
+  height: 1px;
+  background: rgba(229, 195, 136, 0.45);
+  margin: 0 auto;
+}
+
+.mobile-exact-divider.bottom-bar {
+  margin-top: 10px;
+  background: rgba(229, 195, 136, 0.35);
+}
+
+.mobile-exact-ig-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 5px 14px;
-  border-radius: var(--radius-pill);
-  background: rgba(229, 195, 136, 0.1);
-  border: 1px solid rgba(229, 195, 136, 0.28);
-  color: var(--gold-champagne);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  margin-bottom: 2px;
-}
-
-.mobile-nav-calls-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  width: 100%;
-}
-
-.mobile-nav-call-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 9px 8px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(229, 195, 136, 0.22) 0%, rgba(200, 162, 97, 0.1) 100%);
-  border: 1.2px solid rgba(229, 195, 136, 0.45);
-  color: var(--text-light);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.mobile-nav-call-btn svg {
-  color: var(--gold-champagne);
-  flex-shrink: 0;
-}
-
-.mobile-nav-call-btn:hover,
-.mobile-nav-call-btn:active {
-  background: var(--gold-champagne);
-  color: #0A0A0A;
-  border-color: var(--gold-champagne);
-  box-shadow: 0 4px 14px rgba(229, 195, 136, 0.4);
-}
-
-.mobile-nav-call-btn:hover svg {
-  color: #0A0A0A;
-}
-
-.mobile-nav-social-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  width: 100%;
-}
-
-.mobile-nav-social-pill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 7px 10px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--text-light);
-  font-size: 0.78rem;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.mobile-nav-social-pill:hover {
-  background: rgba(229, 195, 136, 0.15);
-  border-color: var(--gold-champagne);
-  color: var(--gold-champagne);
-}
-
-.mobile-nav-social-pill.whatsapp:hover {
-  background: #25D366;
-  border-color: #25D366;
+  gap: 10px;
+  width: 88%;
+  max-width: 320px;
+  margin: 22px auto 14px;
+  padding: 11px 24px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--gold-champagne);
+  background: #000000;
   color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+}
+
+.mobile-exact-ig-btn:hover,
+.mobile-exact-ig-btn:active {
+  background: var(--gold-champagne);
+  color: #000000;
+  box-shadow: 0 4px 18px rgba(229, 195, 136, 0.4);
+}
+
+.mobile-exact-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--gold-champagne);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.mobile-exact-tagline .spark {
+  color: var(--gold-champagne);
+  font-size: 0.85rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -3189,5 +3070,161 @@ body.menu-open {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+
+/* ==========================================================================
+   Luxury Line Design (Image 5 Delicate Gold Contour & Tendril Line Art)
+   ========================================================================== */
+.section-line-design {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.22;
+  transition: opacity 0.4s ease;
+  filter: drop-shadow(0 0 8px rgba(229, 195, 136, 0.2));
+  animation: floralSway 16s ease-in-out infinite;
+}
+
+.services-line-tr {
+  top: -35px;
+  right: -45px;
+  width: 280px;
+  height: 280px;
+  transform: rotate(15deg);
+}
+
+.services-line-bl {
+  bottom: -35px;
+  left: -45px;
+  width: 260px;
+  height: 260px;
+  transform: rotate(195deg);
+}
+
+.process-line-tr {
+  top: -25px;
+  right: -35px;
+  width: 290px;
+  height: 290px;
+  transform: rotate(-10deg);
+}
+
+.instagram-line-br {
+  bottom: -35px;
+  right: -45px;
+  width: 270px;
+  height: 270px;
+  transform: rotate(40deg);
+}
+
+
+/* ==========================================================================
+   Mobile View Perfection (Images 1, 2, 3)
+   Proper Centering, Balanced Left & Right Space, and Horizontally Widened
+   Instagram Moments Cards without Vertical Enlargement
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Image 1 & 2: About Us Section Mobile Centering */
+  .about-content-column {
+    padding-left: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .about-content-column .section-tag {
+    margin: 0 auto 10px !important;
+    display: inline-flex !important;
+  }
+
+  .about-content-column .section-title {
+    text-align: center !important;
+    margin: 0 auto 14px !important;
+    max-width: 100% !important;
+  }
+
+  .about-text-lead,
+  .about-text-body,
+  .about-text-approach {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 520px !important;
+  }
+
+  .about-features-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 auto 20px !important;
+    gap: 10px !important;
+  }
+
+  .about-feature-card {
+    width: 100% !important;
+    margin: 0 auto !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+  }
+
+  #knowMoreBtn {
+    margin: 0 auto !important;
+    display: inline-flex !important;
+  }
+
+  /* Image 3: Instagram / Moments Cards - Increase Right & Left Width, Not Size, and Center */
+  .instagram-section .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .instagram-content-column {
+    width: 100% !important;
+    align-items: center !important;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+    justify-items: center !important;
+  }
+
+  .instagram-card {
+    width: 100% !important;
+    aspect-ratio: 1.2 / 1 !important; /* Widened on left and right without increasing height */
+    max-height: 165px !important;
+    border-radius: 14px !important;
+  }
+
+  .instagram-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .instagram-action-wrap {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 20px auto 0 !important;
+  }
+
+  #instagramShowMoreBtn {
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-features-grid {
+    max-width: 100% !important;
+  }
+  .instagram-card {
+    aspect-ratio: 1.25 / 1 !important; /* Extra horizontal stretch on small mobile screens */
+    max-height: 155px !important;
   }
 }
